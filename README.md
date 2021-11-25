@@ -47,8 +47,11 @@ Executing ```pipenv run volttron -vv``` should start the volttron server at this
 - ```pipenv shell``` activates the current projects virtual environment.
 - ```pipenv graph``` shows a dependency graph of all dependencies for the environment
 - ```pipenv install <package> --dev``` installs a development dependency.
+- ```pipenv uninstall <package>``` uninstalls a package
 - ```pipenv run <command>``` executes command in the python environment of the directory.
-
+- ```pipenv lock -r > requirements.txt``` generates a requirements.txt from the Pipfile.lock
+- ```pipenv sync``` syncs changes from Pipfile to lock file
+- ```pipenv-setup sync``` syncs changes to the setup.py file for the repository.
 
 ## Pycharm Setup
 
