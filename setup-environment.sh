@@ -15,7 +15,7 @@
 set -eu
 
 # Container directory for all of the repositories.
-ROOT_ENV=/repos/devsetup
+REPO_ROOT=/repos/devsetup
 # Python version to use as base version
 PYTHON=3.7
 
@@ -29,19 +29,19 @@ GIT_FORK=VOLTTRON
 GIT_REPO_NAMES="volttron-utils volttron-client volttron-server"
 
 # Container directory must exist before we can start
-if [ ! -d "$ROOT_ENV" ]; then
-  echo "Root directory $ROOT_ENV does not exist!"
+if [ ! -d "$REPO_ROOT" ]; then
+  echo "Root directory $REPO_ROOT does not exist!"
   exit 1
 fi
 
 # Capture the current directory so we can go back to it.
 CD=$(pwd)
-cd "$ROOT_ENV"
+cd "$REPO_ROOT"
 
 for repo in $GIT_REPO_NAMES
 do
   # Do nothing if we already have a repo directory
-  if [ -d "$ROOT_ENV/$repo" ]; then
+  if [ -d "$REPO_ROOT/$repo" ]; then
     echo "Ignoring $repo as the directory exists."
     continue
   fi
@@ -49,12 +49,12 @@ do
   echo "Cloning $repo"
   result=$(git clone "$GIT_URL/$GIT_FORK/$repo" -b $GIT_BRANCH)
 
-  cd "$ROOT_ENV/$repo"
+  cd "$REPO_ROOT/$repo"
 
   result=$(pipenv --python "$PYTHON")
   result=$(pipenv sync)
 
-  cd "$ROOT_ENV"
+  cd "$REPO_ROOT"
 done
 
 cd "$CD"
