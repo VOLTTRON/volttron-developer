@@ -40,7 +40,20 @@ easier.
 3. execute ```pipenv install -e ../volttron-utils```
 4. execute ```pipenv install -e .```
 
-Opening the volttron-server, volttron-client and volttron-utils in pycharm should look like the following image:
+Executing ```pipenv run volttron -vv``` should start the volttron server at this point in time.
+
+### Other handy commands
+
+- ```pipenv shell``` activates the current projects virtual environment.
+- ```pipenv graph``` shows a dependency graph of all dependencies for the environment
+- ```pipenv install <package> --dev``` installs a development dependency.
+- ```pipenv run <command>``` executes command in the python environment of the directory.
+
+
+## Pycharm Setup
+
+Opening and attaching volttron-server, volttron-client and volttron-utils in pycharm should look like the following 
+image:
 
 ![Pycharm Open Projects](images/pycharm-open-projects.png)
 
@@ -50,3 +63,8 @@ option from the file menu.
 Clicking the "Projects" menu allows you to see the project files instead of the project view.
 
 ![Pycharm Project File View](images/pycharm-open-project-file-view.png)
+
+All projects should be referencing the same python environment (volttron-server) from the virtualenv settings
+within the projects.
+
+![Pycharm Interpretor Settings](images/pycharm-interpreter.png)
