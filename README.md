@@ -71,3 +71,13 @@ All projects should be referencing the same python environment (volttron-server)
 within the projects.
 
 ![Pycharm Interpretor Settings](images/pycharm-interpreter.png)
+
+## Debugging VOLTTRON in Pycharm
+
+Make sure that your pycharm settings are gevent compatible
+
+![Pycharm Gevent Compatible](images/pycharm-gevent.png)
+
+Create a Run/Debug configuration for volttron like the following
+
+![Pycharm Run Configuration](images/pycharm-config-debug-volttron.png)
