@@ -74,10 +74,16 @@ within the projects.
 
 ## Debugging VOLTTRON in Pycharm
 
+The following are run from the same python environment and are highlighted red where
+either changes need to be made from the default or are areas that should be verified
+are correct for the different use cases.
+
 Make sure that your pycharm settings are gevent compatible
 
 ![Pycharm Gevent Compatible](images/pycharm-gevent.png)
 
-Create a Run/Debug configuration for volttron like the following
+Create a Run/Debug configuration for volttron and vctl like the following
 
-![Pycharm Run Configuration](images/pycharm-config-debug-volttron.png)
+![Pycharm Run volttron -vv](images/pycharm-config-debug-volttron.png)
+
+![Pycharm Run vctl -vv command](images/pycharm-config-debug-volttron-control.png)
