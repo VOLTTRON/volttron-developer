@@ -1,7 +1,16 @@
 # volttron-developer
 
 This repository has miscellaneous scripts for helping to maintain VOLTTRON
-related repositories.
+related repositories.  
+
+## Requirements
+
+The script uses pipenv.  We need to use the default dependencies of volttron plus
+pipenv.  
+
+```bash 
+$> sudo apt install pipenv
+```
 
 ## setup-environment.sh
 
@@ -46,6 +55,7 @@ Executing ```pipenv run volttron -vv``` should start the volttron server at this
 
 - ```pipenv shell``` activates the current projects virtual environment.
 - ```pipenv graph``` shows a dependency graph of all dependencies for the environment
+- ```pipenv install <package>``` installs a package into environment.
 - ```pipenv install <package> --dev``` installs a development dependency.
 - ```pipenv uninstall <package>``` uninstalls a package
 - ```pipenv run <command>``` executes command in the python environment of the directory.

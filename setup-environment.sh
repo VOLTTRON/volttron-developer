@@ -51,7 +51,7 @@ do
 
   cd "$REPO_ROOT/$repo"
 
-  result=$(pipenv --python "$PYTHON")
+  result=$(pipenv --python "$PYTHON" --dev)
   result=$(pipenv sync)
 
   cd "$REPO_ROOT"
