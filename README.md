@@ -53,6 +53,8 @@ Executing ```pipenv run volttron -vv``` should start the volttron server at this
 
 ### Other handy commands
 
+- ```pipenv --rm``` removes your virtual environment
+- ```pipenv --venv``` shows you the path to the virtual environment
 - ```pipenv shell``` activates the current projects virtual environment.
 - ```pipenv graph``` shows a dependency graph of all dependencies for the environment
 - ```pipenv install <package>``` installs a package into environment.
@@ -65,10 +67,17 @@ Executing ```pipenv run volttron -vv``` should start the volttron server at this
 
 ## Pycharm Setup
 
-Opening and attaching volttron-server, volttron-client and volttron-utils in pycharm should look like the following 
-image:
+Open volttron-server project. Set the python intepreter by going to 
+Settings -> Python Interpreter -> Virtual Environment(on the left) -> On the right pick existing environment. Give the path to python in your volttron-server's virtual environment. The path to the virtual environment can be got by running the command ```pipenv --venv``` from within volttron-server source directory
+
+![Pycharm Interpretor Settings](images/pycharm-interpreter.png)
+
+
+Open volttron-client project, and volttron-utils project. For both pick the option attach when you get a popup. All projects should be referencing the same python environment (volttron-server) from the virtualenv settings
+within the projects.
 
 ![Pycharm Open Projects](images/pycharm-open-projects.png)
+
 
 One can rename the project by highlighting the top of the tree volttron-server and choosing 'rename project' 
 option from the file menu.
@@ -77,10 +86,7 @@ Clicking the "Projects" menu allows you to see the project files instead of the 
 
 ![Pycharm Project File View](images/pycharm-open-project-file-view.png)
 
-All projects should be referencing the same python environment (volttron-server) from the virtualenv settings
-within the projects.
 
-![Pycharm Interpretor Settings](images/pycharm-interpreter.png)
 
 ## Debugging VOLTTRON in Pycharm
 
