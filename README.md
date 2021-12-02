@@ -67,8 +67,9 @@ Executing ```pipenv run volttron -vv``` should start the volttron server at this
 
 ## Pycharm Setup
 
-Open volttron-server project. Set the python intepreter by going to 
-Settings -> Python Interpreter -> Virtual Environment(on the left) -> On the right pick existing environment. Give the path to python in your volttron-server's virtual environment. The path to the virtual environment can be got by running the command ```pipenv --venv``` from within volttron-server source directory
+Open volttron-server project. Set the python intepreter to the python under volttron-server's virtual environment. The path to the virtual environment can be got by running the command ```pipenv --venv``` from within volttron-server source directory.
+In pycharm go to:
+Settings -> Python Interpreter -> Virtual Environment(on the left) -> On the right pick existing environment. Give the path to python in your volttron-server's virtual environment. Check the box that says "make this available to all projects"
 
 ![Pycharm Interpretor Settings](images/pycharm-interpreter.png)
 
