@@ -17,7 +17,7 @@ set -eu
 # Container directory for all of the repositories.
 REPO_ROOT=/repos/devsetup
 # Python version to use as base version
-PYTHON=3.7
+PYTHON=3.8.10
 
 # Main url for git location
 GIT_URL=https://github.com
@@ -51,7 +51,7 @@ do
 
   cd "$REPO_ROOT/$repo"
 
-  result=$(pipenv --python "$PYTHON" --dev)
+  result=$(pipenv --python "$PYTHON")
   result=$(pipenv sync)
 
   cd "$REPO_ROOT"
