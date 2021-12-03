@@ -45,9 +45,9 @@ However for us we want everything to be editable in our projects so that it make
 easier.  
 
 1. Open a command line to the volttron-server repository
-2. execute ```pipenv install -e ../volttron-client```
-3. execute ```pipenv install -e ../volttron-utils```
-4. execute ```pipenv install -e .```
+2. execute ```pipenv install -e ../volttron-client --dev```
+3. execute ```pipenv install -e ../volttron-utils --dev```
+4. execute ```pipenv install -e . --dev```
 
 Executing ```pipenv run volttron -vv``` should start the volttron server at this point in time.
 
