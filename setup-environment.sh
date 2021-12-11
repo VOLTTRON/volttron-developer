@@ -22,7 +22,7 @@ PYTHON=3.8.10
 # Main url for git location
 GIT_URL=https://github.com
 # Branch to clone from for each repository
-GIT_BRANCH=pipenv
+GIT_BRANCH=main
 # User name to clone from
 GIT_FORK=VOLTTRON
 # repositories to clone from.
