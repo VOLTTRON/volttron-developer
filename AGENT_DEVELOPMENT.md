@@ -163,9 +163,19 @@ with the patterns of 8.x VOLTTRON.
 
 ### Setup
 
- 1. Create a directory for your agent
+#### 8.x deployment
+
+ 1. Create a directory for your agent for our example 'mynewlistener'
+    ```bash
+    $> mkdir mynewlistener
+    $> cd mynewlistener
+    ```
  2. Copy the current volttron/examples/ListenerAgent to your directory
- 3. Modify the top of the file listener/agents.py file to have both import statements
+    ```bash
+    $> cp volttron/examples/ListenerAgent . -R
+    ```
+    
+ 3. Modify the top of the file ./ListenerAgent/listener/agents.py file to have both import statements
     as follows:
     ```python
     try:
@@ -183,14 +193,65 @@ with the patterns of 8.x VOLTTRON.
         from volttron.client.vip.agent import Agent, Core, PubSub
         from volttron.client.vip.agent.subsystems.query import Query
     ```
- 4. Start VOLTTRON 8.x and install the agent from the new directory.
- 5. Stop VOLTTRON and create a new virtual environment
- 6. Activate the new envrionment
- 7. pip install volttron-server (current version is 0.3.11)
- 8. Remove the ~/.volttron directory as it is not backward compatible with 8.x
- 9. Start VOLTTRON 
- 10. Install the new agent from it's directory
+ 4. Activate the VOLTTRON 8.x environment and install the agent
+    ```bash
+    $> cd <yourvolttronsourcedirectory>
+    $> source env/bin/activate
+    $(volttron)> cd <yourmynewlistenerdirectory>
+    $(volttron)> volttron -vv -l volttron.log &
+    $(volttron)> vctl install ListenerAgent --start
+    $(volttron)> tail -f volttron.log
+    # ctrl-d to exit tail.
+    ```
+ 5. Once verified that the listener is running as expected stop volttron
+    ```bash
+    $(volttron)> vctl shutdown --platform
+    ```
+ 6. Remove VOLTTRON home and deactivate
+    ```bash
+    $(volttron)> rm -rf ~/.volttron
+    $(volttron)> deactivate
+    $>
+    ```
  
+#### Modular Code
+ 1. Move to a different directory (modularcode) and create a virtual environment
+    ```bash
+    $> cd .. && mkdir modularcode && cd modularcode
+    $> python3 -m venv venv
+    ```
+    
+ 2. Activate the new envrironment
+    ```bash
+    $> source venv/bin/activate
+    ```
+    
+ 3. Install volttron-server the environment.
+    ```bash
+    $(venv)> pip install volttron-server
+    ```
+    
+ 4. Change directory to the 'mynewlistener' directory
+    ```bash
+    $(venv) cd /mynewlistener
+    ```
+       
+ 5. Start volttron
+     ```bash
+     $(venv)> volttron -vv -l volttron.log &
+     ```
+ 
+ 6. Install and start the listener agent
+    ```bash
+    $(venv)> vctl install ListenerAgent --start
+    ```
+ 7. Verify successful start through the log or status
+    ```bash
+    $(venv) vctl status
+    # or
+    $(venv) tail -f volttron.log
+    ```
+    
 That's it for this agent.  There are a lot of agents where this will be enough to do the
 transition.  For other items there may be some more things to modify, however I will have a
 full disclosure of those in the upcoming white paper and will update this repository as I go.
