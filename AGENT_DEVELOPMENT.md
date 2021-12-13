@@ -9,7 +9,7 @@ The second part of the tutorial is for seasoned VOLTTRON veterans with agents th
 need to be ported to the new modular code base, but also want to have them 
 available for the 8.x environment.
 
-With every tutorial there are requirements in order to make them work.  This one is no differnet
+With every tutorial there are requirements in order to make them work.  This one is no different,
 the following requirements should be installed system wide so they are available to be
 used throughout the tutorial.
 
