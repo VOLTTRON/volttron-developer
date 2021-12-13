@@ -10,7 +10,7 @@ need to be ported to the new modular code base, but also want to have them
 available for the 8.x environment.
 
 With every tutorial there are requirements in order to make them work.  This one is no different,
-the following requirements should be installed system wide so they are available to be
+the following requirements should be installed system-wide, so they are available to be
 used throughout the tutorial.
 
 ## Requirements
@@ -96,8 +96,7 @@ through building a new listener agent.
     ```python
     import logging
     
-    from volttron import utils
-    from volttron.utils.commands import vip_main
+    from volttron import utils    
     from volttron.client.vip.agent import Agent, Core, PubSub
     
     utils.setup_logging()
