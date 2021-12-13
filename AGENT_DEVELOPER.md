@@ -136,7 +136,51 @@ through building a new listener agent.
 Congratulations you now have a working volttron environment.  There is a lot more to
 VOLTTRON than this simple agent, however this agent shows the patterns for larger
 agents.  In the following section we will port an agent from the VOLTTRON 8.x platform 
-to the modular code base.
+to the modular code base.  The process will actually allow the agent to be installed
+on both the 8.x platform and the modular code base.
 
-## Porting From VOLTTRON 8.x 
+## Agents on both 8.x and Modular Code Base
+
+In this tutorial the example/Listener agent will be ported to run on both VOLTTRON 8.x
+and on the new modular framework.  At this point you must have cloned/downloaded
+the VOLTTRON 8.x code in a folder called volttron.
+
+This assumes you are comfortable with the current process of installing agents and working
+with the patterns of 8.x VOLTTRON.
+
+### Setup
+
+ 1. Create a directory for your agent
+ 2. Copy the current volttron/examples/ListenerAgent to your directory
+ 3. Modify the top of the file listener/agents.py file to have both import statements
+    as follows:
+    ```python
+    try:
+        # Attempt to import from 8.x version of VOLTTRON if not successful to import then
+        # attempt to import from modular version of VOLTTRON.
+        from volttron.platform.agent import utils
+        from volttron.platform.messaging.health import STATUS_GOOD
+        from volttron.platform.vip.agent import Agent, Core, PubSub
+        from volttron.platform.vip.agent.subsystems.query import Query
+
+    except ImportError:
+
+        from volttron.utils.commands import vip_main
+        from volttron.client.messaging.health import STATUS_GOOD
+        from volttron.client.vip.agent import Agent, Core, PubSub
+        from volttron.client.vip.agent.subsystems.query import Query
+    ```
+ 4. Start VOLTTRON 8.x and install the agent from the new directory.
+ 5. Stop VOLTTRON and create a new virtual environment
+ 6. Activate the new envrionment
+ 7. pip install volttron-server (current version is 0.3.11)
+ 8. Remove the ~/.volttron directory as it is not backward compatible with 8.x
+ 9. Start VOLTTRON 
+ 10. Install the new agent from it's directory
+ 
+That's it for this agent.  There are a lot of agents where this will be enough to do the
+transition.  For other items there may be some more things to modify, however I will have a
+full disclosure of those in the upcoming white paper and will update this repository as I go.
+
+
 
