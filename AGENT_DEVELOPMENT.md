@@ -177,7 +177,7 @@ with the patterns of 8.x VOLTTRON.
 
     except ImportError:
 
-        from volttron.utils.commands import vip_main
+        from volttron import utils
         from volttron.client.messaging.health import STATUS_GOOD
         from volttron.client.vip.agent import Agent, Core, PubSub
         from volttron.client.vip.agent.subsystems.query import Query
