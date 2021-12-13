@@ -120,7 +120,7 @@ through building a new listener agent.
     
     def main():
         try:
-            vip_main(MyListener, version=__version__)
+            vip_main(MyListener, version="0.1")
         except Exception as e:
             _log.exception('unhandled exception')
     if __name__ == '__main__':
