@@ -86,9 +86,10 @@ through building a new listener agent.
     )
     ```
     
- 4. Create a directory for your agent code to go into
+ 4. Create a directory for your agent code to go into and cd into that directory
     ```bash
     $> mkdir mylistener
+    $> cd mylistener
     ```
     
  5. Create an agent.py module within the mylistener directory with the following code.    
