@@ -1,5 +1,18 @@
 # VOLTTRON Agent Developer Instructions
 
+The following documentation steps through the process of creating a simple agent that listens
+to the entire message bus and writes it to the log file.  This agent uses pipenv for its base,
+however you could use poetry or another package manager if you choose (support for installing from
+a directory is limited to poetry, pipenv, and pip installations only).  
+
+The second part of the tutorial is for seasoned VOLTTRON veterans with agents that 
+need to be ported to the new modular code base, but also want to have them 
+available for the 8.x environment.
+
+With every tutorial there are requirements in order to make them work.  This one is no differnet
+the following requirements should be installed system wide so they are available to be
+used throughout the tutorial.
+
 ## Requirements
 
 System level requirements:
