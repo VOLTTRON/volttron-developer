@@ -128,8 +128,13 @@ through building a new listener agent.
         sys.exit(main())
     ```
     
- 6. Create Wheel and Source distribution
+ 6. Create a empty __init__.py file
     ```bash
+    $> touch __init__.py
+    ```
+ 7. Cd to the parent directory(volttron-listener) and create Wheel and source distribution
+    ```bash
+    $> cd ..
     $> pipenv run python setup.py bdist_wheel sdist
     ```
   
