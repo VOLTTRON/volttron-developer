@@ -128,7 +128,7 @@ through building a new listener agent.
         sys.exit(main())
     ```
     
- 6. Create a empty __init__.py file
+ 6. Create an empty __init__.py file inside the mylistener
     ```bash
     $> touch __init__.py
     ```
@@ -157,18 +157,15 @@ agents.  In the following section we will port an agent from the VOLTTRON 8.x pl
 to the modular code base.  The process will actually allow the agent to be installed
 on both the 8.x platform and the modular code base.
 
-## Agents on both 8.x and Modular Code Base
+## Porting an Existing Agents
 
-In this tutorial the example/Listener agent will be ported to run on both VOLTTRON 8.x
-and on the new modular framework.  At this point you must have cloned/downloaded
-the VOLTTRON 8.x code in a folder called volttron.
+This tutorial unlike the one above will not use pipenv as a package manager.  Instead ther
+will be a plain virtual environment in which we can install volttron-server and the upgraded
+existing agent.  This tutorial is made in two parts, the first we upgrade the agent and
+install it on the 8.x platform and second we create a virtual environment and install the
+modular code and the agent.
 
-This assumes you are comfortable with the current process of installing agents and working
-with the patterns of 8.x VOLTTRON.
-
-### Setup
-
-#### 8.x deployment
+### 8.x deployment
 
  1. Create a directory for your agent for our example 'mynewlistener'
     ```bash
@@ -219,7 +216,8 @@ with the patterns of 8.x VOLTTRON.
     $>
     ```
  
-#### Modular Code
+### Modular Code
+
  1. Move to a different directory (modularcode) and create a virtual environment
     ```bash
     $> cd .. && mkdir modularcode && cd modularcode
