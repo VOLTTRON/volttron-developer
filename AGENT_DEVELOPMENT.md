@@ -160,7 +160,7 @@ on both the 8.x platform and the modular code base.
 
 ## Porting an Existing Agents
 
-This tutorial unlike the one above will not use pipenv as a package manager.  Instead ther
+This tutorial unlike the one above will not use pipenv as a package manager.  Instead there
 will be a plain virtual environment in which we can install volttron-server and the upgraded
 existing agent.  This tutorial is made in two parts, the first we upgrade the agent and
 install it on the 8.x platform and second we create a virtual environment and install the
