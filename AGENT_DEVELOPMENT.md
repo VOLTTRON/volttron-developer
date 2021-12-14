@@ -98,6 +98,7 @@ through building a new listener agent.
     import logging
     
     from volttron import utils    
+    from volttron.utils import vip_main
     from volttron.client.vip.agent import Agent, Core, PubSub
     
     utils.setup_logging()
