@@ -173,6 +173,7 @@ modular code and the agent.
     $> mkdir mynewlistener
     $> cd mynewlistener
     ```
+    
  2. Copy the current volttron/examples/ListenerAgent to your directory
     ```bash
     $> cp volttron/examples/ListenerAgent . -R
@@ -196,7 +197,26 @@ modular code and the agent.
         from volttron.client.vip.agent import Agent, Core, PubSub
         from volttron.client.vip.agent.subsystems.query import Query
     ```
- 4. Activate the VOLTTRON 8.x environment and install the agent
+    
+ 4. Edit the ./setup.py file and remove the install_requires line
+    ```python
+    # Setup
+    setup(
+        name=agent_package + 'agent',
+        version=__version__,
+        ############## REMOVE THIS LINE
+        ### install_requires=['volttron'],
+        ################
+        packages=packages,
+        entry_points={
+            'setuptools.installation': [
+                'eggsecutable = ' + agent_module + ':main',
+            ]
+        }
+    ) 
+    ```
+ 
+ 5. Activate the VOLTTRON 8.x environment and install the agent
     ```bash
     $> cd <yourvolttronsourcedirectory>
     $> source env/bin/activate
@@ -206,11 +226,13 @@ modular code and the agent.
     $(volttron)> tail -f volttron.log
     # ctrl-d to exit tail.
     ```
- 5. Once verified that the listener is running as expected stop volttron
+    
+ 6. Once verified that the listener is running as expected stop volttron
     ```bash
     $(volttron)> vctl shutdown --platform
     ```
- 6. Remove VOLTTRON home and deactivate
+    
+ 7. Remove VOLTTRON home and deactivate
     ```bash
     $(volttron)> rm -rf ~/.volttron
     $(volttron)> deactivate
@@ -249,6 +271,7 @@ modular code and the agent.
     ```bash
     $(venv)> vctl install ListenerAgent --start
     ```
+    
  7. Verify successful start through the log or status
     ```bash
     $(venv) vctl status
