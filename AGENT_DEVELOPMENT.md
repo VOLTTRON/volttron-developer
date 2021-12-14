@@ -20,14 +20,7 @@ System level requirements:
 ```bash
 # Python 3.8 is required for the installation of VOLTTRON
 sudo apt-get update
-sudo apt-get install -y build-essential \
-  libffi-dev \
-  python3.8-dev \ 
-  python3.8-venv \
-  openssl \
-  libssl-dev \
-  libevent-dev \
-  pipenv
+sudo apt-get install -y build-essential libffi-dev python3.8-dev python3.8-venv openssl libssl-dev libevent-dev pipenv
 ```
 
 ## Agent Step by Step Using Pipenv
@@ -168,19 +161,18 @@ modular code and the agent.
 
 ### Run against 8.x VOLTTRON
 
- 1. Create a directory for your agent for our example 'mynewlistener'
+ 1. Create a directory for a new example agent 'mynewlistener' outside of the volttron-listener agent created above. 
     ```bash
     $> mkdir mynewlistener
     $> cd mynewlistener
     ```
     
- 2. Copy the current volttron/examples/ListenerAgent to your directory
+ 2. Copy the current <volttron_8.x source dir>/examples/ListenerAgent to your directory. Modify the source path in the below command before executing
     ```bash
-    $> cp volttron/examples/ListenerAgent . -R
+    $> cp <volttron_8.x_source dir>/examples/ListenerAgent . -R
     ```
     
- 3. Modify the top of the file ./ListenerAgent/listener/agents.py file to have both import statements
-    as follows:
+ 3. Modify the top of the file ./ListenerAgent/listener/agent.py file. Replace the imports statements that import VOLTTRON specific packages with the following code:
     ```python
     try:
         # Attempt to import from 8.x version of VOLTTRON if not successful to import then
@@ -198,7 +190,7 @@ modular code and the agent.
         from volttron.client.vip.agent.subsystems.query import Query
     ```
     
- 4. Edit the ./setup.py file and remove the install_requires line
+ 4. Edit the ./ListenerAgent/setup.py file and remove the install_requires line
     ```python
     # Setup
     setup(
@@ -218,9 +210,9 @@ modular code and the agent.
  
  5. Activate the VOLTTRON 8.x environment and install the agent
     ```bash
-    $> cd <yourvolttronsourcedirectory>
+    $> cd <yourvolttron 8.x sourcedirectory>
     $> source env/bin/activate
-    $(volttron)> cd <yourmynewlistenerdirectory>
+    $(volttron)> cd <your mynewlistener directory>
     $(volttron)> volttron -vv -l volttron.log &
     $(volttron)> vctl install ListenerAgent --start
     $(volttron)> tail -f volttron.log
@@ -232,7 +224,7 @@ modular code and the agent.
     $(volttron)> vctl shutdown --platform
     ```
     
- 7. Remove VOLTTRON home and deactivate
+ 7. Remove VOLTTRON home(update path below if you are using custom $VOLTTRON_HOME) and deactivate
     ```bash
     $(volttron)> rm -rf ~/.volttron
     $(volttron)> deactivate
@@ -256,23 +248,18 @@ modular code and the agent.
     ```bash
     $(venv)> pip install volttron-server
     ```
-    
- 4. Change directory to the 'mynewlistener' directory
-    ```bash
-    $(venv) cd /mynewlistener
-    ```
        
- 5. Start volttron. Below command will start moduler VOLTTRON server
+ 4. Start volttron. Below command will start moduler VOLTTRON server
      ```bash
      $(venv)> volttron -vv -l volttron.log &
      ```
  
- 6. Install and start the listener agent
+ 5. Install and start the Listener agent you modified - i.e. the agent under mynewlistener directory. Update source path in the below command
     ```bash
-    $(venv)> vctl install ListenerAgent --start
+    $(venv)> vctl install <parent directory>/mynewlistener/ListenerAgent --start
     ```
     
- 7. Verify successful start through the log or status
+ 6. Verify successful start through the log or status
     ```bash
     $(venv) vctl status
     # or
