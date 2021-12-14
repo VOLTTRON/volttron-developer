@@ -165,7 +165,7 @@ existing agent.  This tutorial is made in two parts, the first we upgrade the ag
 install it on the 8.x platform and second we create a virtual environment and install the
 modular code and the agent.
 
-### 8.x deployment
+### Run against 8.x VOLTTRON
 
  1. Create a directory for your agent for our example 'mynewlistener'
     ```bash
@@ -216,7 +216,7 @@ modular code and the agent.
     $>
     ```
  
-### Modular Code
+### Run against modular VOLTTRON server
 
  1. Move to a different directory (modularcode) and create a virtual environment
     ```bash
@@ -239,7 +239,7 @@ modular code and the agent.
     $(venv) cd /mynewlistener
     ```
        
- 5. Start volttron
+ 5. Start volttron. Below command will start moduler VOLTTRON server
      ```bash
      $(venv)> volttron -vv -l volttron.log &
      ```
@@ -256,8 +256,8 @@ modular code and the agent.
     ```
     
 That's it for this agent.  There are a lot of agents where this will be enough to do the
-transition.  For other items there may be some more things to modify, however I will have a
-full disclosure of those in the upcoming white paper and will update this repository as I go.
+transition. For other items there may be some more things to modify, however VOLTTRON team will have a
+full disclosure of those in the upcoming white paper and will update this repository accordingly.
 
 
 
