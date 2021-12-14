@@ -22,8 +22,8 @@ System level requirements:
 sudo apt-get update
 sudo apt-get install -y build-essential \
   libffi-dev \
-  python3-dev \ 
-  python3-venv \
+  python3.8-dev \ 
+  python3.8-venv \
   openssl \
   libssl-dev \
   libevent-dev \
