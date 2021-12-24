@@ -1,0 +1,6 @@
+Client Packages:,
+Monolithic VOLTTRON, Modular VOLTTRON
+volttron.platform.vip.*, volttron.client.vip.*
+volttron.platform.messaging.*, volttron.client.messaging.*
+volttron.platform.vip.agent.*, volttron.client.vip.agent.*
+volttron.platform.vip.agent.subsystem.*, volttron.client.vip.agent.subsystem.*
