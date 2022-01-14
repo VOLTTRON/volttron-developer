@@ -5,7 +5,7 @@ VOLTTRON is split into three components
 2. [volttron-client](https://github.com/volttron/volttron-client)
 3. [volttron-utils](https://github.com/volttron/volttron-utils)
 
-We have developed a [white paper](code-modular-white-paper.pdf) detailing the changes from the monolothic (8.x) version
+We have developed a [white paper](PNNL-32485-code-modular-white-paper.pdf) detailing the changes from the monolothic (8.x) version
 of the platform.
 
 If you want to contribute to any of the above three repositories, please refer to the 
