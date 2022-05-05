@@ -16,6 +16,9 @@ $> sudo apt install git
 # As of this writting the 1.2 version of poetry is in beta and is in the  master branch of poetry.
 $> curl -sSL https://install.python-poetry.org | python3 - --preview
 
+# Add poetry path to PATH variable. Also add this to your ~/.bashrc file  
+export PATH="/home/volttron/.local/bin:$PATH"
+
 # Configure poetry to use project root virtual environments
 $> poetry config virtualenvs.in-project true
 
