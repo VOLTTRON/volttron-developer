@@ -48,13 +48,15 @@ can be referenced from a development environment such as visual studio code or p
 $> cde /repos/volttron-core
 $> poetry install
 
-# activate the environment
+# creates a new shell and activate the environment
 $> poetry shell
 ```
 
 After executing the above commands your environment is setup for starting volttron.  The next
 step is to begin [developing an agent](AGENT_DEVELOPMENT.md), or continue on with setting up pycharm
 for use with this environment.
+
+Note: To exit the poetry shell use the exit command. this deactivates the environment and exits the spawned shell. 
 
 ## Pycharm Setup
 
