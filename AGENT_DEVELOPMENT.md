@@ -307,12 +307,6 @@ allow publishing to the project from the various deployment tools (github action
       1. ['console_scripts']
       2. ['setuptools.installation']['eggsecutable']
       3. ['volttron.agent']['launch']
-   d. We also recommend adding the following metadata
-      a. Framework :: VOLTTRON 
-      b. Framework :: VOLTTRON :: Agent 
-      c. Framework :: VOLTTRON :: <version of volttron agent is
-         compatible with> [Repeat this for all versions agent is compatible with]
-      You can add these as 'classifiers' in setup.py/setup.cfg/pyproject.toml
    e. README.md - A README file with details on what the agent does, its configurations and steps to install
 2. We highly recommend semantic versioning for the package. The version number is given as three numerical components, 
    for instance 0.1.2
