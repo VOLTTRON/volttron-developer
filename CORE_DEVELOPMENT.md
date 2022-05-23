@@ -45,30 +45,41 @@ The following will install the volttron into a virtual environment.  The environ
 can be referenced from a development environment such as visual studio code or pycharm.
 
 ```shell
-$> cde /repos/volttron-core
+$> cd /repos/volttron-core
 $> poetry install
-
-# creates a new shell and activate the environment
-$> poetry shell
 ```
 
-After executing the above commands your environment is setup for starting volttron.  The next
-step is to begin [developing an agent](AGENT_DEVELOPMENT.md), or continue on with setting up pycharm
+**Activating environment**
+Now you have volttron installed in virtual environment within your volttron-core directory (/repos/volttron-core/.venv). 
+You can now start VOLTTRON and run volttron commands within this virtual environment. 
+There are three ways to do this
+1. Prefix each python or volttron command with a "poetry run ". For example ``` poetry run vctl status```. 
+2. Activate the virtual environment using activate command. ```source .venv/bin/activate```. This activates the virtual 
+environment in the current shell and runs your commands using the virtual environment under /repos/volttron-core/.venv.
+Once activate you can run commands such as ```vctl status``` without the "poetry run " prefix. To deactivate the 
+environment run the command "deactivate". 
+3. Run ```poetry shell``` to spawn a new shell within volttron-core/.venv and activates the virtual environment. 
+To deactivate and exit use the ```exit``` command. This will deactivate the virtual environment and exit the shell 
+spawned. **Note** Do not use ```deactivate``` command within the poetry shell, as that would deactivate the environment  
+without exiting the shell spawned(python will point to system level python) and running ```poetry shell``` again will  
+not work until you ```exit``` the previously spawned shell.
+
+Now you can begin [developing an agent](AGENT_DEVELOPMENT.md), or continue on with setting up pycharm
 for use with this environment.
 
-Note: To exit the poetry shell use the exit command. this deactivates the environment and exits the spawned shell. 
 
 ## Pycharm Setup
-
+- Install poetry plugin for pycharm
+- 
+  ![Pycharm Poetry Plugin](images/pycharm-poetry-plugin.png)
 - Open the volttron-core project
 - Reference the python in .venv/bin/python under volttron-core directory. (Only there if you configured in-place above 
   otherwise reference virtual environment for this project)
   - In pycharm go to:
     Settings -> Python Interpreter -> Virtual Environment(on the left) -> On the right pick existing environment. 
-  Give the path to python in your volttron-core's virtual environment. 
-
-
-![Pycharm Interpretor Settings](images/pycharm-interpreter.png)
+  Give the path to python in your volttron-core's virtual environment.
+  
+    ![Pycharm Interpretor Settings](images/pycharm-interpreter.png)
 
 
 ## Debugging VOLTTRON in Pycharm
@@ -81,13 +92,9 @@ Make sure that your pycharm settings are gevent compatible
 
 ![Pycharm Gevent Compatible](images/pycharm-gevent.png)
 
-Create a Run/Debug configuration for volttron and vctl like the following. 
-
----
-**NOTE**
-The below two screenshots show the project as "volttron-project". If you skipped the optional steps replace 
-"volttron-project" with "volttron-core" 
----
+Create a Run/Debug configuration for volttron and vctl like the following. Make sure you are pointing to the python 
+interpreter that is under volttron-core's virtual environment and the working directory points to cloned volttron-core 
+directory
 
 ![Pycharm Run volttron -vv](images/pycharm-config-debug-volttron.png)
 
