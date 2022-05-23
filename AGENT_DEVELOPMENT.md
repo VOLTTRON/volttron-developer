@@ -529,9 +529,9 @@ sections show how to setup and test using Poetry for such dependency chain.
 
 The following shows the dependency tree
 
-<img src="images/sqlite-historian-dependencies.png" alt="sqlite historian dependency tree" width="100" height="150"/>
+<img src="images/sqlite-historian-dependencies.png" alt="sqlite historian dependency tree" width="120" height="180"/>
 
-poetry.toml file of each of these project only refer to the direct dependency. For example, 
+poetry.toml file of each of these projects only refer to the direct dependency. For example, 
 volttron-sqlite-historian/pyproject.toml only includes dependency reference to volttron-sql-historian but not to 
 volttron-base-historian or volttron-core. Similarly volttron-sql-historian/pyproject.toml only includes dependency 
 reference to volttron-base-historian and not to volttron-core. Below shows the relevant lines from pyproject.toml of 
