@@ -354,17 +354,25 @@ To publish using poetry:
 1. Configure a repository: Poetry allows one to use multiple repositories (PyPI or PyPITest
 or other indexes) for deployment. To add a deployment repository, use the poetry config
 command as follows:
-poetry config test_pypi https://test.pypi.org/simple/
+```poetry config test_pypi https://test.pypi.org/simple/```
 where test_pypi of your repository name and https://test.pypi.org/simple/ is the actual
 endpoint you are publishing to.
 2. To upload your wheel to the test_pypi repository you configured above, execute the
 following command
-poetry publish --repository test_pypi
+```poetry publish --repository test_pypi```
 If a --repository is not specified poetry by default publishes to PyPI.
 Please see (https://python-poetry.org/docs/repositories/) for more information about repositories
 and poetry.
 
 
+### Publish using github workflow actions
+Publishing to PyPi can be automated using github workflows. If you created your agent template using 
+ [copier-poetry-volttron-agent](https://github.com/VOLTTRON/copier-poetry-volttron-agent) then is there already a workflow 
+ under <agent-dir>/.github/workflows/publish_to_pypi.yml for you to use as is are to customize according to your needs. 
+ Update it with your credentials to ensure that publishing to PyPi will succeed. 
+ The default behavior of this workflow is to publish to PyPi when a release has been published
+ 
+ 
 Congratulations you now have a working volttron environment.  There is a lot more to
 VOLTTRON than this simple agent, however this agent shows the patterns for larger
 agents. 
